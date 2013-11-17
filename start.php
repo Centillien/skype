@@ -35,8 +35,14 @@ $user = $params['entity'];
  		'href' => false,
  		));
 		$return[] = $item;        
+	}else{
+                $item = ElggMenuItem::factory(array(
+                'name' => 'Skype',
+                'text' => 'No Skype yet',
+                'href' => false,
+                ));
+                $return[] = $item;
         }
         return $return;
         }
 }
-
