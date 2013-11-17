@@ -12,8 +12,6 @@
          *
          */
 
-elgg_load_js('skype_uri');
-
 $owneruser = elgg_get_page_owner_entity();
 
 if (isset($owneruser->skype)) {
@@ -39,6 +37,8 @@ if (!$username_is_valid) {
         echo "<p>" . elgg_echo("skype:invalid") . "</p>";
         return;
 }
+
+elgg_load_js('skype_uri');
 
 ?>
 <div id="genSkypeCall" style="width:20%;background-color:white">
