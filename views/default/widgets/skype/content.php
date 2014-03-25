@@ -32,7 +32,9 @@ if (empty($skype_name)) {
         return;
 }
 
+$skype_name = str_replace("@", "",$skype_name);
 $username_is_valid = preg_match('~^[a-zA-Z0-9_.-]{1,9999}$~', $skype_name);
+
 if (!$username_is_valid) {
         echo "<p>" . elgg_echo("skype:invalid") . "</p>";
         return;
