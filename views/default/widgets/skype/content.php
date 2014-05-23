@@ -26,6 +26,10 @@ if (isset($owneruser->skype)) {
 
 
 $skype_type = $vars['entity']->skype_call_type;
+if (empty($skype_type)) {
+        $skype_type = 'chat';
+        return;
+}
 
 if (empty($skype_name)) {
         echo "<p>" . elgg_echo("skype:notset") . "</p>";
