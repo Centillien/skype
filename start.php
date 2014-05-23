@@ -26,13 +26,9 @@ function skype_user_hover_menu($hook, $type, $return, $params) {
 $user = $params['entity'];
 
 	$text = elgg_echo('skype:callme');
-<<<<<<< HEAD
 	$no_skype_text = elgg_echo('skype:noskype');
         $url = "<a href ='skype:$user->skype?chat'>" . $text ."</a>";
         $no_skype = "<a href ='http://www.skype.com'>" . $no_skype_text ."</a>";
-=======
-        $url = "<a href ='skype:$user->skype?chat'>" . $text ."</a>";
->>>>>>> 6fc59a03aabaee4c03250cb27ab514dffcd7ced6
 
 	if($user->skype) {
 		$item = ElggMenuItem::factory(array(
@@ -42,7 +38,6 @@ $user = $params['entity'];
  		));
 		$return[] = $item;        
 	}else{
-<<<<<<< HEAD
 	 if(elgg_get_plugin_setting("no_skype_setting","skype") == 'yes') {
                 $item = ElggMenuItem::factory(array(
                 'name' => 'Skype',
@@ -51,14 +46,6 @@ $user = $params['entity'];
                 ));
                 $return[] = $item;
 		}
-=======
-                $item = ElggMenuItem::factory(array(
-                'name' => 'Skype',
-                'text' => 'No Skype yet',
-                'href' => false,
-                ));
-                $return[] = $item;
->>>>>>> 6fc59a03aabaee4c03250cb27ab514dffcd7ced6
         }
         return $return;
         }
