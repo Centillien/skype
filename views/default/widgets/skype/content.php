@@ -43,11 +43,11 @@ if (!$username_is_valid) {
 elgg_load_js('skype_uri');
 
 ?>
-<div id="genSkypeCall" style="width:20%;background-color:white">
+<div id="SkypeButton" style="width:20%;background-color:white">
  <script type="text/javascript">
         Skype.ui({
             name: "<?php echo $skype_type;?>",
-            element: "genSkypeCall",
+            element: "SkypeButton",
             participants: ["<?php echo $skype_name;?>"],
             imageSize: 32,
             imageColor: "skype"

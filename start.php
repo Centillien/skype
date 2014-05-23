@@ -6,21 +6,19 @@
  * @package Skype
  */
 
-	elgg_register_event_handler('init', 'system', 'skype_init');
+elgg_register_event_handler('init', 'system', 'skype_init');
+
+function skype_init() {
+       	elgg_register_widget_type('skype', elgg_echo('skype:title'), elgg_echo('skype:info'));
+
+       	// user hover menu
+       	elgg_register_plugin_hook_handler('register', 'menu:user_hover', 'skype_user_hover_menu');
 
         //Register js in cache
         elgg_register_simplecache_view('js/skype/skype_uri');
-        $url = elgg_get_simplecache_url('js', 'skype/skype_uri');
-        elgg_register_js('skype_uri', $url);
-
-	
-
-function skype_init() {
-        elgg_register_widget_type('skype', elgg_echo('skype:title'), elgg_echo('skype:info'));
-
-        // user hover menu
-        elgg_register_plugin_hook_handler('register', 'menu:user_hover', 'skype_user_hover_menu');
-
+       	$url = elgg_get_simplecache_url('js', 'skype/skype_uri');
+       	elgg_register_js('skype_uri', $url);
+}
 
 function skype_user_hover_menu($hook, $type, $return, $params) {
 $user = $params['entity'];
@@ -38,7 +36,7 @@ $user = $params['entity'];
  		));
 		$return[] = $item;        
 	}else{
-	 if(elgg_get_plugin_setting("no_skype_setting","skype") == 'yes') {
+	if(elgg_get_plugin_setting("no_skype_setting","skype") == 'yes') {
                 $item = ElggMenuItem::factory(array(
                 'name' => 'Skype',
                 'text' => $no_skype,
@@ -49,4 +47,4 @@ $user = $params['entity'];
         }
         return $return;
         }
-}
+
