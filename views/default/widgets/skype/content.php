@@ -6,9 +6,9 @@
          *
          *
          * @author Gerard Kanters
-         * @copyright Centillien 2013
-         * @link http://www.centillien.com/
-         * @version 1.0.5
+         * @copyright Centillien 2014
+         * @link https://www.centillien.com/
+         * @version 1.0.8
          *
          */
 
@@ -27,13 +27,13 @@ if (isset($owneruser->skype)) {
 
 $skype_type = $vars['entity']->skype_call_type;
 if (empty($skype_type)) {
-        $skype_type = 'chat';
-        return;
+	$skype_type = 'chat';
+	return;
 }
 
 if (empty($skype_name)) {
         echo "<p>" . elgg_echo("skype:notset") . "</p>";
-        return;
+	return;
 }
 
 $skype_name = str_replace("@", "",$skype_name);
@@ -41,7 +41,7 @@ $username_is_valid = preg_match('~^[a-zA-Z0-9_.-]{1,9999}$~', $skype_name);
 
 if (!$username_is_valid) {
         echo "<p>" . elgg_echo("skype:invalid") . "</p>";
-        return;
+	return;
 }
 
 elgg_load_js('skype_uri');

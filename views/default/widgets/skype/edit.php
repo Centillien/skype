@@ -18,7 +18,7 @@
         <?php echo elgg_echo("skype:call"); ?>
         <?php echo elgg_view('input/dropdown', array(
                 'name' => 'params[skype_call_type]',
-		'options' => array(call, chat),
+		'options' => array('call', 'chat'),
                 'value' => $vars['entity']->skype_call_type,
         )) ?>
 </div>
